@@ -14,7 +14,7 @@
     <header></header>
 
     <div class="container goods-cont">
-        <h2 class="header-title">Все товары</h2>
+        <h2 class="header-title">Все товары, STEP 5</h2>
 
         <div class="product__blocks" id="all">
 
@@ -30,6 +30,10 @@
     <script src="./js/data.js" type="module"></script>
 
     <script type="module">
+
+        
+
+
         import { products } from "./js/data.js"
 
         window.onhashchange = () => {
@@ -143,16 +147,16 @@
 
             step += val1
             
-
+            button.classList.add('pagination-btn')
 
             // 0-9 10-19
             if (i == 0) {
                 a.href = "/pagination.html#" + `${i}-${step - 1}`
-                button.innerText = `${i}-${step - 1}`
+                button.innerText = `${i + 1}-${step}`
             }
             else {
                 a.href = "/pagination.html#" + `${step - 6}-${step - 2}`
-                button.innerText = `${step - 6}-${step - 1}`
+                button.innerText = `${step - 5}-${step}`
             }
             
             a.append(button)
@@ -167,6 +171,12 @@
         // Get elements by index & show them on pag
         RELOAD_ELEMENTS(routeA, routeB)
         // console.log(products.length);
+
+
+
+        if(window.location.href === 'http://127.0.0.1:5500/pagination.html'){
+            RELOAD_ELEMENTS(0, val1 - 1) 
+        }
     </script>
 </body>
 

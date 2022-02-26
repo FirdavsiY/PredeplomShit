@@ -11,14 +11,14 @@ header.innerHTML = `
                 </a>
                  
                 <a href="./pagination.html">
-                    <p class="header-nav">Step5</p>
+                    <p class="header-nav">Step 5</p>
                 </a>
                                 
                 <a href="./pagi7.html">
-                    <p class="header-nav">Step7</p>
+                    <p class="header-nav">Step 7</p>
                 </a>
                 <a href="./pagi15.html">
-                    <p class="header-nav">Step15</p>
+                    <p class="header-nav">Step 15</p>
                 </a>
                 
                 <p class="header-nav">Интернет-магазин Dily.ru</p>

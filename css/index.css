@@ -387,7 +387,7 @@ header .bottom .b-main .m-right .other .key p a {
     margin-top: 15px;
 }
 
-.btns{
+.btns {
     display: flex;
     gap: 5px;
 }
@@ -399,7 +399,7 @@ header .bottom .b-main .m-right .other .key p a {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    
+
 }
 
 .light {
@@ -409,7 +409,7 @@ header .bottom .b-main .m-right .other .key p a {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    
+
 }
 
 .dark {
@@ -419,7 +419,7 @@ header .bottom .b-main .m-right .other .key p a {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-   
+
 }
 
 .gold {
@@ -429,7 +429,7 @@ header .bottom .b-main .m-right .other .key p a {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-   
+
 }
 
 .product_desc {
@@ -496,7 +496,8 @@ header .bottom .b-main .m-right .other .key p a {
 .bascet {
     margin-left: 15px;
 }
-.comments{
+
+.comments {
     margin-top: 5px;
     font-style: normal;
 
@@ -504,7 +505,8 @@ header .bottom .b-main .m-right .other .key p a {
     line-height: 140%;
     color: #363A45;
 }
-.btn-show{
+
+.btn-show {
     position: absolute;
     bottom: -45px;
     left: 0;
@@ -515,22 +517,51 @@ header .bottom .b-main .m-right .other .key p a {
     background-color: transparent;
     cursor: pointer;
 }
-.btn-show:nth-child(2){
+
+.btn-show:nth-child(2) {
     color: red;
     left: 100px;
 }
-.btn-hide{
+
+.btn-hide {
     left: 100px;
     color: red;
 }
-.product__blocks{
+
+.product__blocks {
     position: relative;
     margin-bottom: 70px;
 }
-.remove-btn{
+
+.remove-btn {
     display: none;
 }
-.goods-cont{
+
+.goods-cont {
     padding-top: 40px;
-     
+
+}
+
+.pagination-btn {
+    margin-right: 8px !important;
+    width: 40px !important;
+    height: 30px !important;
+    font-size: 12px !important;
+    text-align: center;
+    background-color: #9fdbb9;
+    border: none;
+    color: #515668;
+    transition: 300ms ease;
+    cursor: pointer;
+
+}
+.pagination-btn:hover{
+    box-shadow: 0 0 7px #1e212b;
+}
+.pagination_links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 15px !important;
+    margin-bottom: 100px !important;
 }

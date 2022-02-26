@@ -14,7 +14,7 @@
     <header></header>
 
     <div class="container goods-cont">
-        <h2 class="header-title">Все товары</h2>
+        <h2 class="header-title">Все товары, STEP 7</h2>
 
         <div class="product__blocks" id="shit">
 
@@ -143,13 +143,15 @@
             let button = document.createElement("button")
             step += val2
 
+            button.classList.add('pagination-btn')
+
             if (i == 0) {
                 a.href = "/pagi7.html#" + `${i}-${step - 1}`
-                button.innerText = `${i}-${step - 1}`
+                button.innerText = `${i + 1}-${step}`
             }
             else {
                 a.href = "/pagi7.html#" + `${step - 8}-${step - 2}`
-                button.innerText = `${step - 8}-${step - 1}`
+                button.innerText = `${step - 7}-${step}`
             }
             
             a.append(button)
@@ -166,6 +168,9 @@
         // Get elements by index & show them on pag
         RELOAD_ELEMENTS(routeA, routeB)
         // console.log(products.length);
+        if(window.location.href === 'http://127.0.0.1:5500/pagi7.html'){
+            RELOAD_ELEMENTS(0, val2 - 1) 
+        }
     </script>
 </body>
 
