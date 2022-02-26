@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./fonts/stylesheet.css">
+    <title>Document</title>
+</head>
+
+<body id="pagination">
+    <header></header>
+
+    <div class="container goods-cont">
+        <h2 class="header-title">Все товары</h2>
+
+        <div class="product__blocks" id="shit">
+
+        </div>
+
+        <div class="pagination-links step7">
+
+        </div>
+    </div>
+
+    <script src="./components/header.js"></script>
+    <!-- <script src="./js/index.js" type="module"></script> -->
+    <script src="./js/data.js" type="module"></script>
+
+    <script type="module">
+        import { products } from "./js/data.js"
+
+        window.onhashchange = () => {
+            window.location.reload()
+        }
+
+        let pagination_links = document.querySelector(".step7")
+         
+        let beginValue = 0
+        let val1 = 5
+        let val2 = 7
+        let val3 = 15
+        const RELOAD_ELEMENTS = (start, end) => {
+            // Serach render place
+            let place = document.querySelector("#shit")
+            let productsLimited = products.filter(item => products.indexOf(item) >= start && products.indexOf(item) <= end)
+
+            let buttonShow = document.createElement('button')
+            let buttonHide = document.createElement('button')
+            buttonShow.innerHTML = 'Show all'
+            buttonHide.innerHTML = 'Hide all'
+            buttonShow.classList.add('btn-show')
+            buttonHide.classList.add('btn-show')
+            buttonHide.classList.add('btn-hide')
+            // buttonHide.style.display = "none"
+            buttonShow.onclick = () => {
+                // whichBtn(place, buttonShow)
+                RENDER_PRODUCTS(arr, id, arr.length)
+
+                // buttonHide.style.display = "block"
+                buttonHide.classList.add('btn-hide')
+                place.append(buttonHide)
+
+            }
+            buttonHide.onclick = () => {
+                buttonHide.style.display = 'none'
+                RENDER_PRODUCTS(arr, id, 5)
+            }
+            place.innerHTML = ''
+            place.append(buttonShow)
+
+            for (let item of productsLimited) {
+                let product = document.createElement('div')
+                let likeImg = document.createElement('img')
+                let productType = document.createElement('img')
+                let categ = document.createElement('p')
+                let productName = document.createElement('p')
+                let btns = document.createElement('div')
+                let grey = document.createElement('button')
+                let light = document.createElement('button')
+                let dark = document.createElement('button')
+                let gold = document.createElement('button')
+                let productDesc = document.createElement('div')
+                let productPrice = document.createElement('p')
+                let likeComm = document.createElement('div')
+                let likes = document.createElement('p')
+                let spanLike = document.createElement('span')
+                let starImg = document.createElement('img')
+                let comments = document.createElement('p')
+                let commentImg = document.createElement('img')
+                let spanComment = document.createElement('span')
+                let btnBuy = document.createElement('button')
+                let basketImg = document.createElement('img')
+                product.classList.add('product')
+                likeImg.setAttribute('src', "./images/icons/green-like.png")
+                likeImg.classList.add('like_green')
+                productType.setAttribute('src', item.images[0])
+                productType.classList.add('product_img')
+                categ.classList.add('categories')
+                categ.innerText = item.category
+                productName.classList.add('product_name')
+                productName.innerText = item.name
+                btns.classList.add('btns')
+                grey.classList.add('grey')
+                light.classList.add('light')
+                dark.classList.add('dark')
+                gold.classList.add('gold')
+                productDesc.classList.add('product_desc')
+                productPrice.classList.add('product_prise')
+                productPrice.innerText = `${item.price}$`
+                likeComm.classList.add('like_comm')
+                likes.classList.add('likes')
+                spanLike.classList.add('like')
+                spanLike.innerText = '4'
+                starImg.setAttribute('src', './images/icons/btn-star.svg')
+                comments.classList.add('comments')
+                commentImg.setAttribute('src', "./images/icons/btn-commend.svg")
+                spanComment.classList.add('comment')
+                spanComment.innerText = '25'
+                btnBuy.classList.add('buy')
+                btnBuy.innerText = 'Купить'
+                basketImg.setAttribute('src', "./images/icons/iconcart.svg")
+                basketImg.classList.add('bascet')
+
+                place.append(product)
+                product.append(likeImg, productType, categ, productName, btns, productDesc, btnBuy)
+                btns.append(grey, light, dark, gold)
+                productDesc.append(productPrice, likeComm)
+                likeComm.append(likes, comments)
+                likes.append(spanLike, starImg)
+                comments.append(commentImg, spanComment)
+                btnBuy.append(basketImg)
+            }
+        }
+
+        let step = 0
+      
+
+        for (let i = 0; i < Math.ceil(products.length / val2); i++) {
+            let a = document.createElement("a")
+            let button = document.createElement("button")
+            step += val2
+
+            if (i == 0) {
+                a.href = "/pagi7.html#" + `${i}-${step - 1}`
+                button.innerText = `${i}-${step - 1}`
+            }
+            else {
+                a.href = "/pagi7.html#" + `${step - 8}-${step - 2}`
+                button.innerText = `${step - 8}-${step - 1}`
+            }
+            
+            a.append(button)
+            pagination_links.append(a)
+            // RELOAD_ELEMENTS(0, val2 - 1)
+
+        }
+ 
+
+        // Read route
+        let routeA = window.location.hash.slice(1).split("-")[0]
+        let routeB = window.location.hash.slice(1).split("-")[1]
+
+        // Get elements by index & show them on pag
+        RELOAD_ELEMENTS(routeA, routeB)
+        // console.log(products.length);
+    </script>
+</body>
+
+</html>
